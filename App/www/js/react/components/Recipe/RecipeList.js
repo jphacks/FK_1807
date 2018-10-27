@@ -6,6 +6,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
 
 const styles = theme => ({
   card: {
@@ -24,13 +26,25 @@ const styles = theme => ({
     width: window.parent.screen.width/3,
     height: window.parent.screen.width/3
   },
+  fab: {
+    position: 'absolute',
+    margin: "auto",
+    bottom: "12%",
+    right: 0,
+    left: 0,
+    backgroundColor: "#474431",
+    '&:hover': {
+      backgroundColor: "#474431",
+    },
+  },
 });
 
 function RecipeList(props) {
   const { classes, theme } = props;
 
   return (
-    <div style={{height: 500, overflow: "auto"}}>
+    <div style={{height: 500, overflow: "auto", padding: "3%"}}>
+      <div>
         {props.recipes.map(d => (
           <Card className={classes.card} onClick={e => {document.location.href = d.recipeUrl}}>
               <CardMedia
@@ -38,7 +52,7 @@ function RecipeList(props) {
                   image={d.mediumImageUrl}
               />
               <div className={classes.details}>
-                  <CardContent className={classes.content} >
+                  <CardContent className={classes.content} style={{paddingT0p: 10}} >
                     <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
                         {d.recipeTitle}
                     </Typography>
@@ -49,6 +63,10 @@ function RecipeList(props) {
               </div>
           </Card>
         ))}
+      </div>
+      <Button variant="fab" className={classes.fab} color='primary' onClick={e => {props.history.push('/')}} aria-label="Close" >
+          <CloseIcon />
+      </Button>
     </div>
   );
 }
