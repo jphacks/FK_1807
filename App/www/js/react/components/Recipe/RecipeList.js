@@ -29,7 +29,7 @@ const styles = theme => ({
   fab: {
     position: 'absolute',
     margin: "auto",
-    bottom: "12%",
+    bottom: "13%",
     right: 0,
     left: 0,
     backgroundColor: "#474431",
