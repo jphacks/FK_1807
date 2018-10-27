@@ -9,7 +9,6 @@ export const getFoods = () => {
           if (err) {
             console.log(err);
           } else {
-            console.log(res);
             dispatch(addFoods(res.body))
           }
         });
@@ -24,8 +23,6 @@ export const getFoods = () => {
   }
   
   export const showRecipe = (parent_id, foods_id, history) => {
-    console.log(parent_id)
-    console.log(foods_id)
     return function(dispatch) {
       request
       .get(`https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1090973428272746101&categoryId=` + parent_id[0]  + `-` + foods_id[0])
