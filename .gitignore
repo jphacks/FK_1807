@@ -1,6 +1,7 @@
 App/node_modules/
 App/platforms/
 App/plugins/
+App/package-lock.json
 App/platforms/
 App/www/js/index.js
 App/www/index.html
