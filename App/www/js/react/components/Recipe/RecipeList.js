@@ -32,23 +32,22 @@ function RecipeList(props) {
   return (
     <div>
         {props.recipes.map(d => (
-        <Card className={classes.card}>
-            <CardMedia
-                className={classes.cover}
-                image="./img/karaage.jpg"
-                title="Live from space album cover"
-            />
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
-                    唐揚げ
-                </Typography>
-                <Typography variant="subtitle1" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 80}}>
-                    サブタイトル〜サブタイトル〜
-                </Typography>
-                </CardContent>
-            </div>
-        </Card>
+          <Card className={classes.card}>
+              <CardMedia
+                  className={classes.cover}
+                  image={d.mediumImageUrl}
+              />
+              <div className={classes.details}>
+                  <CardContent className={classes.content}>
+                  <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
+                      {d.recipeTitle}
+                  </Typography>
+                  <Typography variant="subtitle1" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 80}}>
+                      {d.recipeDescription}
+                  </Typography>
+                  </CardContent>
+              </div>
+          </Card>
         ))}
     </div>
   );

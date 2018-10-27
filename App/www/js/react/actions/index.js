@@ -26,7 +26,16 @@ export const getFoods = () => {
               console.log(err);
             } else {
               console.log(res.body);
+              dispatch(recipeResult(res.body.result, history))
             }
           });
       };
+  }
+
+  const recipeResult = (res, history) => {
+    history.push("/recipe");
+    return {
+      type: "ADD_RECIPES",
+      res
+    }
   }

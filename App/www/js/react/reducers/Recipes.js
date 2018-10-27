@@ -1,37 +1,13 @@
 const Recipes = (state = {
-    recipes: [
-        {
-            img: "./karaage.jpg",
-            title: "タイトル",
-            subtitle: "サブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトル"
-        },
-        {
-            img: "./karaage.jpg",
-            title: "タイトル",
-            subtitle: "サブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトル"
-        },
-        {
-            img: "./karaage.jpg",
-            title: "タイトル",
-            subtitle: "サブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトル"
-        },
-        {
-            img: "./karaage.jpg",
-            title: "タイトル",
-            subtitle: "サブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトル"
-        },
-        {
-            img: "./karaage.jpg",
-            title: "タイトル",
-            subtitle: "サブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトルーサブタイトル"
-        },
-    ]
+    recipes: []
   }, action) => {
   
     switch (action.type) {
       case 'ADD_RECIPES':
+        console.log(action.res);
         return {
           ...state,
+          recipes: action.res
         }
       default:
         return state
