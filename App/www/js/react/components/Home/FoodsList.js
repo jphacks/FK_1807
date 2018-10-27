@@ -77,14 +77,14 @@ class ConfirmationDialogRaw extends React.Component {
         <DialogContent style={{padding: 0}}>
         <List>
           {this.props.foods.map(d => (
-            <ListItem key={d.id} role={undefined} dense button onClick={this.handleToggle(d.id)}>
+            <ListItem key={d.categoryId} role={undefined} dense button onClick={this.handleToggle(d.categoryId)}>
               <Checkbox
-                checked={this.state.checked.indexOf(d.id) !== -1}
+                checked={this.state.checked.indexOf(d.categoryId) !== -1}
                 tabIndex={-1}
                 disableRipple
                 style={{color: "#FF9500"}}
               />
-              <ListItemText primary={d.name} />
+              <ListItemText primary={d.categoryName} />
               <ListItemText style={{textAlign: "right"}} primary={d.num} />
             </ListItem>
           ))}
@@ -166,7 +166,7 @@ class FoodsList extends React.Component {
                 <List component="nav">
                     {this.props.foods.map((d, index) => (
                         <ListItem>
-                            <ListItemText primary={d.name} />
+                            <ListItemText primary={d.categoryName} />
                             <ListItemText className={classes.num} primary={d.num} />
                         </ListItem>
                     ))}

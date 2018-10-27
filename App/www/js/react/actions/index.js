@@ -8,8 +8,8 @@ export const getFoods = history => {
         .end(function(err, res) {
           if (err) {
             console.log(err);
-            dispatch(errorAsync(err, res));
           } else {
+            console.log(res);
             dispatch(addFoods(res.body, history))
           }
         });
@@ -17,9 +17,10 @@ export const getFoods = history => {
   };
 
   const addFoods = (res, history) => {
-    history.push("/");
+    //history.push("/");
     return {
-      type: "ADD_RECIPES",
+      type: "ADD_FOODS",
+      res
     }
   }
   
@@ -31,7 +32,6 @@ export const getFoods = history => {
         .end(function(err, res) {
           if (err) {
             console.log(err);
-            dispatch(errorAsync(err, res));
           } else {
             dispatch(addRecipes(res.body.result, history))
           }

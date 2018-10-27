@@ -1,28 +1,33 @@
 const Foods = (state = {
     foods: [
         {
-            id: 91,
-            name: "test1",
+            parentCategoryId: 12,
+            categoryId: 91,
+            categoryName: "test1",
             num: 2
         },
         {
-            id: 92,
-            name: "test2",
+            parentCategoryId: 12,
+            categoryId: 92,
+            categoryName: "test2",
             num: 4
         },
         {
-            id: 93,
-            name: "test3",
+            parentCategoryId: 12,
+            categoryId: 93,
+            categoryName: "test3",
             num: 2
         },
         {
-            id: 94,
-            name: "test4",
+            parentCategoryId: 12,
+            categoryId: 94,
+            categoryName: "test4",
             num: 5
         },
         {
-            id: 95,
-            name: "test5",
+            parentCategoryId: 12,
+            categoryId: 95,
+            categoryName: "test5",
             num: 5
         },
     ],
@@ -30,10 +35,9 @@ const Foods = (state = {
   
     switch (action.type) {
       case 'ADD_FOODS':
-        console.log(state.foods)
         return {
           ...state,
-
+          foods: action.res
         }
       default:
         return state
