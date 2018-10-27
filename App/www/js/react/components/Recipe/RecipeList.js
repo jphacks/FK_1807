@@ -21,6 +21,7 @@ const styles = theme => ({
   },
   content: {
     flex: '1 0 auto',
+    paddingTop: 10
   },
   cover: {
     width: window.parent.screen.width/3,
@@ -53,10 +54,10 @@ function RecipeList(props) {
               />
               <div className={classes.details}>
                   <CardContent className={classes.content} >
-                    <Typography component="h6" variant="h6" style={{overflow: "hidden", width: "100%", height: 30}}>
+                    <Typography variant="h6" component="h6" style={{overflow: "hidden", width: "100%", height: 30}}>
                         {d.recipeTitle}
                     </Typography>
-                    <Typography variant="subtitle2" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 60, lineheight: "1px", paddingT0p: "30px"}}>
+                    <Typography variant="subtitle2" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 60, lineheight: "1px", paddingTop: 5}}>
                         {d.recipeDescription}
                     </Typography>
                   </CardContent>
