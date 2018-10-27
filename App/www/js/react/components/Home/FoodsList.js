@@ -101,7 +101,7 @@ class ConfirmationDialogRaw extends React.Component {
           <Button onClick={this.handleCancel}>
             キャンセル
           </Button>
-          <Button onClick={this.handleOk} style={{backgroundColor: "#FF9500"}}>
+          <Button onClick={this.handleOk} style={{backgroundColor: "#FF9500", color: "white"}}>
             レシピの選択
           </Button>
         </DialogActions>
@@ -150,6 +150,9 @@ const styles = theme => ({
       backgroundColor: "#FF9500",
     },
   },
+  no_display: {
+    display: "none"
+  }
 });
 
 class FoodsList extends React.Component {
@@ -181,7 +184,7 @@ class FoodsList extends React.Component {
                 <IconButton className={classes.check} onClick={e =>{this.props.dispatch(getFoods())}}>
                     <img src='./img/search@3x.png' />
                 </IconButton>
-                <IconButton className={classes.recipe} onClick={this.handleClickListItem}>
+                <IconButton className={this.props.visible ? classes.recipe :classes.no_display} onClick={this.handleClickListItem} >
                     <img src='./img/recipe@3x.png' />
                 </IconButton>
                 <ConfirmationDialogRaw
@@ -191,7 +194,7 @@ class FoodsList extends React.Component {
                     open={this.state.open}
                     onClose={this.handleClose}
                     value={this.state.value}
-                    {...{foods: this.props.foods, history: this.props.history}}
+                    {...{foods: this.props.foods, visible: this.props.visible, history: this.props.history}}
                 />
             </div>
         );
@@ -205,6 +208,7 @@ classes: PropTypes.object.isRequired,
 const mapStateToProps = state => {
   return {
     foods: state.Foods.foods,
+    visible: state.Foods.visible,
   }
 }
 

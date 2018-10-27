@@ -26,10 +26,8 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
                 <AppBar position="static" className={classes.color}>
-                    <Toolbar>
-                        <Typography variant="title" color="inherit" className={classes.grow}>
-                            Logo
-                        </Typography>
+                    <Toolbar style={{margin: "auto"}}>
+                        <img src="./img/header_logo.png" />
                     </Toolbar>
                 </AppBar>
             </div>

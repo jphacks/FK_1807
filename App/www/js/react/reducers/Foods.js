@@ -1,18 +1,18 @@
 const Foods = (state = {
     foods: [
         {
-            parentCategoryId: 0,
-            categoryId: 0,
             categoryName: "『調べる』を押してください",
         },
     ],
+    visible: false,
   }, action) => {
   
     switch (action.type) {
       case 'ADD_FOODS':
         return {
           ...state,
-          foods: action.res
+          foods: action.res,
+          visible: true
         }
       default:
         return state
