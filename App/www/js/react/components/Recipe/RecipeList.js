@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { toDetailMenu } from '../../actions'
 
 const styles = theme => ({
   card: {
@@ -32,19 +33,19 @@ function RecipeList(props) {
   return (
     <div style={{height: 500, overflow: "auto"}}>
         {props.recipes.map(d => (
-          <Card className={classes.card} onClick={e => {window.open(d.recipeUrl, '_blank')}}>
+          <Card className={classes.card} onClick={e => {document.location.href = d.recipeUrl}}>
               <CardMedia
                   className={classes.cover}
                   image={d.mediumImageUrl}
               />
               <div className={classes.details}>
-                  <CardContent className={classes.content}>
-                  <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
-                      {d.recipeTitle}
-                  </Typography>
-                  <Typography variant="subtitle1" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 80}}>
-                      {d.recipeDescription}
-                  </Typography>
+                  <CardContent className={classes.content} >
+                    <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
+                        {d.recipeTitle}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 80}}>
+                        {d.recipeDescription}
+                    </Typography>
                   </CardContent>
               </div>
           </Card>
