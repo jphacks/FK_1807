@@ -126,16 +126,16 @@ const styles = theme => ({
     margin: "auto",
     right: 0,
     left: 0,
-    bottom: "12%",
+    bottom: "10%",
     width: 150,
-    height: 150
+    height: 200
   },
   recipe: {
     position: 'absolute',
     bottom: "12%",
     right: "2%",
     width: 70,
-    height: 70
+    height: 100
   },
   cssRoot: {
     backgroundColor: "#FF9500",
@@ -150,15 +150,15 @@ class FoodsList extends React.Component {
       open: false,
       value: 'Dione',
     };
-  
+
     handleClickListItem = () => {
       this.setState({ open: true });
     };
-  
+
     handleClose = value => {
       this.setState({ value, open: false });
     };
-  
+
     render() {
         const { classes } = this.props;
         return (
@@ -200,7 +200,7 @@ const mapStateToProps = state => {
     foods: state.Foods.foods,
   }
 }
-  
+
 
 FoodsList = connect(mapStateToProps)(FoodsList);
 export default withStyles(styles)(FoodsList);
