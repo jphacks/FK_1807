@@ -19,7 +19,8 @@ class ConfirmationDialogRaw extends React.Component {
     super();
     this.state = {
       value: props.value,
-      checked: [],
+      checkedP: [],
+      checkedC: [],
     };
   }
 
@@ -33,32 +34,38 @@ class ConfirmationDialogRaw extends React.Component {
   handleCancel = () => {
     this.props.onClose(this.props.value);
     this.setState({
-        checked: [],
+      checkedP: [],
+      checkedC: [],
     });
   };
 
   handleOk = () => {
     this.props.onClose(this.state.value);
-    this.props.dispatch(showRecipe(this.state.checked, this.props.history))
+    this.props.dispatch(showRecipe(this.state.checkedP, this.state.checkedC, this.props.history))
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
-  handleToggle = value => () => {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  handleToggle = (valueP, valueC) => () => {
+    const { checkedP, checkedC } = this.state;
+    const currentIndexP = checkedP.indexOf(valueP);
+    const newCheckedP = [...checkedP];
+    const currentIndexC = checkedC.indexOf(valueC);
+    const newCheckedC = [...checkedC];
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
+    if (currentIndexC === -1) {
+      newCheckedP.push(valueP);
+      newCheckedC.push(valueC);
     } else {
-      newChecked.splice(currentIndex, 1);
+      newCheckedP.splice(currentIndexP, 1);
+      newCheckedC.splice(currentIndexC, 1);
     }
 
     this.setState({
-      checked: newChecked,
+      checkedP: newCheckedP,
+      checkedC: newCheckedC,
     });
   };
 
@@ -77,14 +84,14 @@ class ConfirmationDialogRaw extends React.Component {
         <DialogContent style={{padding: 0}}>
         <List>
           {this.props.foods.map(d => (
-            <ListItem key={d.id} role={undefined} dense button onClick={this.handleToggle(d.id)}>
+            <ListItem key={d.categoryId} role={undefined} dense button onClick={this.handleToggle(d.parentCategoryId, d.categoryId)}>
               <Checkbox
-                checked={this.state.checked.indexOf(d.id) !== -1}
+                checked={this.state.checkedC.indexOf(d.categoryId) !== -1}
                 tabIndex={-1}
                 disableRipple
                 style={{color: "#FF9500"}}
               />
-              <ListItemText primary={d.name} />
+              <ListItemText primary={d.categoryName} />
               <ListItemText style={{textAlign: "right"}} primary={d.num} />
             </ListItem>
           ))}
@@ -166,7 +173,7 @@ class FoodsList extends React.Component {
                 <List component="nav">
                     {this.props.foods.map((d, index) => (
                         <ListItem>
-                            <ListItemText primary={d.name} />
+                            <ListItemText primary={d.categoryName} />
                             <ListItemText className={classes.num} primary={d.num} />
                         </ListItem>
                     ))}

@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-export const getFoods = history => {
+export const getFoods = () => {
     return function(dispatch) {
       request
         .get(`http://18.220.201.195:3000/api/fridgestatus`)
@@ -8,30 +8,30 @@ export const getFoods = history => {
         .end(function(err, res) {
           if (err) {
             console.log(err);
-            dispatch(errorAsync(err, res));
           } else {
-            dispatch(addFoods(res.body, history))
+            console.log(res);
+            dispatch(addFoods(res.body))
           }
         });
     };
   };
 
-  const addFoods = (res, history) => {
-    history.push("/");
+  const addFoods = res => {
     return {
-      type: "ADD_RECIPES",
+      type: "ADD_FOODS",
+      res
     }
   }
   
-  export const showRecipe = (foods_id, history) => {
+  export const showRecipe = (parent_id, foods_id, history) => {
+    console.log(parent_id)
     console.log(foods_id)
     return function(dispatch) {
       request
-      .get(`https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1090973428272746101&categoryId=12-` + foods_id[0])
+      .get(`https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1090973428272746101&categoryId=` + parent_id[0]  + `-` + foods_id[0])
         .end(function(err, res) {
           if (err) {
             console.log(err);
-            dispatch(errorAsync(err, res));
           } else {
             dispatch(addRecipes(res.body.result, history))
           }
