@@ -30,9 +30,9 @@ function RecipeList(props) {
   const { classes, theme } = props;
 
   return (
-    <div>
+    <div style={{height: 500, overflow: "auto"}}>
         {props.recipes.map(d => (
-          <Card className={classes.card}>
+          <Card className={classes.card} onClick={e => {window.open(d.recipeUrl, '_blank')}}>
               <CardMedia
                   className={classes.cover}
                   image={d.mediumImageUrl}
