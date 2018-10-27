@@ -41,6 +41,6 @@ export const getFoods = () => {
     history.push("/recipe");
     return {
       type: "ADD_RECIPES",
-      res
+      res,
     }
   }
