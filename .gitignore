@@ -5,3 +5,6 @@ App/package-lock.json
 App/platforms/
 App/www/js/index.js
 App/www/index.html
+
+Server/node_modules/
+Server/package-lock.json
