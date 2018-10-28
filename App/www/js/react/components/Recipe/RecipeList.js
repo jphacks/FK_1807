@@ -21,6 +21,7 @@ const styles = theme => ({
   },
   content: {
     flex: '1 0 auto',
+    paddingTop: 10
   },
   cover: {
     width: window.parent.screen.width/3,
@@ -29,7 +30,7 @@ const styles = theme => ({
   fab: {
     position: 'absolute',
     margin: "auto",
-    bottom: "12%",
+    bottom: "13%",
     right: 0,
     left: 0,
     backgroundColor: "#474431",
@@ -43,7 +44,7 @@ function RecipeList(props) {
   const { classes, theme } = props;
 
   return (
-    <div style={{height: 500, overflow: "auto", padding: "3%"}}>
+    <div style={{height: 500, overflow: "auto", padding: "5%"}}>
       <div>
         {props.recipes.map(d => (
           <Card className={classes.card} onClick={e => {document.location.href = d.recipeUrl}}>
@@ -52,11 +53,11 @@ function RecipeList(props) {
                   image={d.mediumImageUrl}
               />
               <div className={classes.details}>
-                  <CardContent className={classes.content} style={{paddingT0p: 10}} >
-                    <Typography component="h5" variant="h5" style={{overflow: "hidden", width: "100%", height: 30}}>
+                  <CardContent className={classes.content} >
+                    <Typography variant="h6" component="h6" style={{overflow: "hidden", width: "100%", height: 30}}>
                         {d.recipeTitle}
                     </Typography>
-                    <Typography variant="subtitle1" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 80}}>
+                    <Typography variant="subtitle2" color="textSecondary" style={{overflow: "hidden", width: "100%", height: 60, lineheight: "1px", paddingTop: 5}}>
                         {d.recipeDescription}
                     </Typography>
                   </CardContent>

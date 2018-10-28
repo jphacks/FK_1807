@@ -140,7 +140,7 @@ const styles = theme => ({
   recipe: {
     position: 'absolute',
     bottom: "12%",
-    right: "2%",
+    right: "4%",
     width: 70,
     height: 100
   },
