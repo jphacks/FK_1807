@@ -42,6 +42,8 @@ IoTとスマートフォンアプリケーションを組み合わせて冷蔵�
 * superagent
 * Material-UI
 * Node.js
+* Cordova
+* Xcode
 
 #### デバイス
 * Raspberry Pi
