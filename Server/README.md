@@ -1,19 +1,23 @@
 # Serverプログラム
 
-実行コマンド: node server.js
+## Dependency
+- 使用言語
+  - Node.js
+- データベース
+  - mongodb
 
-## 実行する時の注意
-1. Node.jsをインストールする
-2. Node.jsのモジュール(express)をインストールする
-2'. 「npm install express」でインストール
-3. 上記のコマンドを実行する
+## Setup
+- Node.js環境構築
+  - npm install
 
-## expressモジュールについて
-・サーバーを構築する際に簡単に構築することができるnode.jsのモジュール
-
-## プログラムの流れ
-1. モジュールをインクルードする
-2. CORS(Cross-Origin Resource Sharing)を行う<br>
-→ブラウザがオリジン(HTMLを読み込んだサーバのこと)以外のサーバからデータを取得する仕組み
-3. app.postでpostが来た時の処理を記述
-4. app.getでGETが来た時の処理を記述
+## Usage
+- 実行コマンド
+  - npm start
+- create
+  - 実行時に一度だけデータベースのテーブル作成
+- read
+  - アプリ側にデータの送信
+  - 1以上の数があるものだけを選び出して送信
+- update
+  - Raspi(冷蔵庫側)からデータの取得
+  - テーブルに存在するものをカウントする
