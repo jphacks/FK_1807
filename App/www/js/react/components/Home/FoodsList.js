@@ -11,8 +11,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import Dialog from '@material-ui/core/Dialog';
 import { getFoods, showRecipe } from '../../actions'
-import Checkbox from '@material-ui/core/Checkbox';
+//import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
+import Radio from '@material-ui/core/Radio';
 
 class ConfirmationDialogRaw extends React.Component {
   constructor(props) {
@@ -56,8 +57,10 @@ class ConfirmationDialogRaw extends React.Component {
     const newCheckedC = [...checkedC];
 
     if (currentIndexC === -1) {
-      newCheckedP.push(valueP);
-      newCheckedC.push(valueC);
+      //newCheckedP.push(valueP);
+      //newCheckedC.push(valueC);
+      newCheckedP[0] = valueP;
+      newCheckedC[0] = valueC;
     } else {
       newCheckedP.splice(currentIndexP, 1);
       newCheckedC.splice(currentIndexC, 1);
@@ -85,7 +88,7 @@ class ConfirmationDialogRaw extends React.Component {
         <List>
           {this.props.foods.map(d => (
             <ListItem key={d.categoryId} role={undefined} dense button onClick={this.handleToggle(d.parentCategoryId, d.categoryId)}>
-              <Checkbox
+              <Radio
                 checked={this.state.checkedC.indexOf(d.categoryId) !== -1}
                 tabIndex={-1}
                 disableRipple
