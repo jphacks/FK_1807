@@ -31,7 +31,6 @@ export const getFoods = () => {
             console.log(err);
           } else {
             dispatch(addRecipes(res.body.result, history))
-            console.log(res)
           }
         });
       };
