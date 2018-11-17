@@ -13,6 +13,12 @@ import Dialog from '@material-ui/core/Dialog';
 import { getFoods, showRecipe } from '../../actions'
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 class ConfirmationDialogRaw extends React.Component {
   constructor(props) {
@@ -87,7 +93,7 @@ class ConfirmationDialogRaw extends React.Component {
         <List>
           {this.props.foods.map(d => (
             <ListItem key={d.categoryId} role={undefined} dense button onClick={this.handleToggle(d.parentCategoryId, d.categoryId)}>
-              <Checkbox
+              <Radio
                 checked={this.state.checkedC.indexOf(d.categoryId) !== -1}
                 tabIndex={-1}
                 disableRipple
