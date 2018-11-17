@@ -6,7 +6,6 @@ import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers/rootReducer'
 import Root from './components/Root'
-import persistState from 'redux-localstorage'
 
 const loggerMiddleware = createLogger()
 

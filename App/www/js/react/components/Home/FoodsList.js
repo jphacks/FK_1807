@@ -56,8 +56,10 @@ class ConfirmationDialogRaw extends React.Component {
     const newCheckedC = [...checkedC];
 
     if (currentIndexC === -1) {
-      newCheckedP.push(valueP);
-      newCheckedC.push(valueC);
+      //newCheckedP.push(valueP);
+      //newCheckedC.push(valueC);
+      newCheckedP[0] = valueP;
+      newCheckedC[0] = valueC;
     } else {
       newCheckedP.splice(currentIndexP, 1);
       newCheckedC.splice(currentIndexC, 1);
